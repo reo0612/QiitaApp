@@ -21,7 +21,6 @@
 		8353722A26481EDB0052EF6A /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8353722826481EDB0052EF6A /* SearchTableViewCell.xib */; };
 		8353722C264820290052EF6A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353722B264820290052EF6A /* API.swift */; };
 		8353723526489B910052EF6A /* UIActivityIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353723426489B910052EF6A /* UIActivityIndicatorView+.swift */; };
-		8353723726489E430052EF6A /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353723626489E430052EF6A /* UITableView+.swift */; };
 		8353723926489FD80052EF6A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353723826489FD80052EF6A /* Alert.swift */; };
 		8353723B2648B99B0052EF6A /* QiitaAppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353723A2648B99B0052EF6A /* QiitaAppError.swift */; };
 		8353723D2648BA970052EF6A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353723C2648BA970052EF6A /* APIError.swift */; };
@@ -67,7 +66,6 @@
 		8353722826481EDB0052EF6A /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		8353722B264820290052EF6A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8353723426489B910052EF6A /* UIActivityIndicatorView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+.swift"; sourceTree = "<group>"; };
-		8353723626489E430052EF6A /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		8353723826489FD80052EF6A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		8353723A2648B99B0052EF6A /* QiitaAppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaAppError.swift; sourceTree = "<group>"; };
 		8353723C2648BA970052EF6A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 			children = (
 				8353722226480DC00052EF6A /* UIStoryboard+.swift */,
 				8353723426489B910052EF6A /* UIActivityIndicatorView+.swift */,
-				8353723626489E430052EF6A /* UITableView+.swift */,
 			);
 			path = Extention;
 			sourceTree = "<group>";
@@ -385,7 +382,6 @@
 				8353723526489B910052EF6A /* UIActivityIndicatorView+.swift in Sources */,
 				835371ED26480C520052EF6A /* SearchViewController.swift in Sources */,
 				8353722626481EAE0052EF6A /* QiitaModel.swift in Sources */,
-				8353723726489E430052EF6A /* UITableView+.swift in Sources */,
 				8353722926481EDB0052EF6A /* SearchTableViewCell.swift in Sources */,
 				8353723926489FD80052EF6A /* Alert.swift in Sources */,
 				836A91F72664AB8F0035F141 /* SearchViewModel.swift in Sources */,
