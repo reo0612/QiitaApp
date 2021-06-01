@@ -20,13 +20,13 @@
 		8353722926481EDB0052EF6A /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353722726481EDB0052EF6A /* SearchTableViewCell.swift */; };
 		8353722A26481EDB0052EF6A /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8353722826481EDB0052EF6A /* SearchTableViewCell.xib */; };
 		8353722C264820290052EF6A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353722B264820290052EF6A /* API.swift */; };
-		83537231264825EF0052EF6A /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83537230264825EF0052EF6A /* SearchPresenter.swift */; };
 		8353723526489B910052EF6A /* UIActivityIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353723426489B910052EF6A /* UIActivityIndicatorView+.swift */; };
 		8353723726489E430052EF6A /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353723626489E430052EF6A /* UITableView+.swift */; };
 		8353723926489FD80052EF6A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353723826489FD80052EF6A /* Alert.swift */; };
 		8353723B2648B99B0052EF6A /* QiitaAppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353723A2648B99B0052EF6A /* QiitaAppError.swift */; };
 		8353723D2648BA970052EF6A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353723C2648BA970052EF6A /* APIError.swift */; };
 		83537246264A09BF0052EF6A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 83537245264A09BF0052EF6A /* Alamofire */; };
+		836A91F72664AB8F0035F141 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836A91F62664AB8F0035F141 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,12 +66,12 @@
 		8353722726481EDB0052EF6A /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		8353722826481EDB0052EF6A /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		8353722B264820290052EF6A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		83537230264825EF0052EF6A /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		8353723426489B910052EF6A /* UIActivityIndicatorView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+.swift"; sourceTree = "<group>"; };
 		8353723626489E430052EF6A /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		8353723826489FD80052EF6A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		8353723A2648B99B0052EF6A /* QiitaAppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaAppError.swift; sourceTree = "<group>"; };
 		8353723C2648BA970052EF6A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		836A91F62664AB8F0035F141 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +123,7 @@
 		835371E726480C520052EF6A /* QiitaApp */ = {
 			isa = PBXGroup;
 			children = (
+				836A91F52664AB550035F141 /* ViewModel */,
 				8353722126480DAD0052EF6A /* Extention */,
 				8353721E26480D5A0052EF6A /* Alert */,
 				8353721D26480D540052EF6A /* Utility */,
@@ -130,7 +131,6 @@
 				8353721B26480D480052EF6A /* Controller */,
 				8353721A26480D420052EF6A /* Model */,
 				8353721926480D3C0052EF6A /* View */,
-				8353721826480D350052EF6A /* Presenter */,
 				835371E826480C520052EF6A /* AppDelegate.swift */,
 				835371F126480C550052EF6A /* Assets.xcassets */,
 				835371F326480C550052EF6A /* LaunchScreen.storyboard */,
@@ -155,14 +155,6 @@
 				8353720C26480C560052EF6A /* Info.plist */,
 			);
 			path = QiitaAppUITests;
-			sourceTree = "<group>";
-		};
-		8353721826480D350052EF6A /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				83537230264825EF0052EF6A /* SearchPresenter.swift */,
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		8353721926480D3C0052EF6A /* View */ = {
@@ -241,6 +233,14 @@
 				8353722826481EDB0052EF6A /* SearchTableViewCell.xib */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		836A91F52664AB550035F141 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				836A91F62664AB8F0035F141 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,9 +388,9 @@
 				8353723726489E430052EF6A /* UITableView+.swift in Sources */,
 				8353722926481EDB0052EF6A /* SearchTableViewCell.swift in Sources */,
 				8353723926489FD80052EF6A /* Alert.swift in Sources */,
+				836A91F72664AB8F0035F141 /* SearchViewModel.swift in Sources */,
 				8353722026480D820052EF6A /* Router.swift in Sources */,
 				835371E926480C520052EF6A /* AppDelegate.swift in Sources */,
-				83537231264825EF0052EF6A /* SearchPresenter.swift in Sources */,
 				8353722C264820290052EF6A /* API.swift in Sources */,
 				8353723D2648BA970052EF6A /* APIError.swift in Sources */,
 			);
