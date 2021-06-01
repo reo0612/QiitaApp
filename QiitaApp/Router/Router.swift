@@ -4,9 +4,7 @@ import SafariServices
 
 final class Router {
     static func showRoot(window: UIWindow) {
-        let searchVC = UIStoryboard.searchVC
-        let searchPresenter = SearchPresenter(output: searchVC)
-        searchVC.inject(input: searchPresenter)
+        let searchVC = SearchViewController.makeFromStoryboard()
         let navSearchVC = UINavigationController(rootViewController: searchVC)
         window.rootViewController = navSearchVC
         window.makeKeyAndVisible()
