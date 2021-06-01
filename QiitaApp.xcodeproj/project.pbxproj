@@ -25,8 +25,8 @@
 		8353723926489FD80052EF6A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353723826489FD80052EF6A /* Alert.swift */; };
 		8353723B2648B99B0052EF6A /* QiitaAppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353723A2648B99B0052EF6A /* QiitaAppError.swift */; };
 		8353723D2648BA970052EF6A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8353723C2648BA970052EF6A /* APIError.swift */; };
-		83537246264A09BF0052EF6A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 83537245264A09BF0052EF6A /* Alamofire */; };
 		836A91F72664AB8F0035F141 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836A91F62664AB8F0035F141 /* SearchViewModel.swift */; };
+		836A91FD2664B3D40035F141 /* CombineCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 836A91FC2664B3D40035F141 /* CombineCocoa */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83537246264A09BF0052EF6A /* Alamofire in Frameworks */,
+				836A91FD2664B3D40035F141 /* CombineCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +260,7 @@
 			);
 			name = QiitaApp;
 			packageProductDependencies = (
-				83537245264A09BF0052EF6A /* Alamofire */,
+				836A91FC2664B3D40035F141 /* CombineCocoa */,
 			);
 			productName = QiitaApp;
 			productReference = 835371E526480C520052EF6A /* QiitaApp.app */;
@@ -334,7 +334,7 @@
 			);
 			mainGroup = 835371DC26480C520052EF6A;
 			packageReferences = (
-				83537244264A09BF0052EF6A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				836A91FB2664B3D40035F141 /* XCRemoteSwiftPackageReference "CombineCocoa" */,
 			);
 			productRefGroup = 835371E626480C520052EF6A /* Products */;
 			projectDirPath = "";
@@ -727,21 +727,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		83537244264A09BF0052EF6A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		836A91FB2664B3D40035F141 /* XCRemoteSwiftPackageReference "CombineCocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			repositoryURL = "https://github.com/CombineCommunity/CombineCocoa.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.4.3;
+				minimumVersion = 0.3.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		83537245264A09BF0052EF6A /* Alamofire */ = {
+		836A91FC2664B3D40035F141 /* CombineCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 83537244264A09BF0052EF6A /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
+			package = 836A91FB2664B3D40035F141 /* XCRemoteSwiftPackageReference "CombineCocoa" */;
+			productName = CombineCocoa;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
