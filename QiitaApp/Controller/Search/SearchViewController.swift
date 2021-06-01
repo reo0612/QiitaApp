@@ -11,14 +11,8 @@ final class SearchViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak private var searchIndicator: UIActivityIndicatorView!
+    @IBOutlet weak private var searchTextField: UITextField!
     
-    private let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        let placeholder = "検索"
-        searchBar.placeholder = placeholder
-        return searchBar
-    }()
     
     private var input: SearchPresenterInput!
     func inject(input: SearchPresenterInput) {
@@ -27,22 +21,12 @@ final class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.titleView = searchBar
-        searchBar.delegate = self
         searchTableView.delegate = self
         searchTableView.dataSource = self
     }
 
 }
 
-extension SearchViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        input.search(searchWord: searchBar.text)
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.text = ""
     }
 }
 
