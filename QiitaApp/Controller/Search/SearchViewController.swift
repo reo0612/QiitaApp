@@ -1,5 +1,7 @@
 
 import UIKit
+import Combine
+import CombineCocoa
 
 final class SearchViewController: UIViewController {
     
@@ -9,81 +11,75 @@ final class SearchViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak private var searchIndicator: UIActivityIndicatorView!
+    @IBOutlet weak private var searchTextField: UITextField!
     
-    private let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        let placeholder = "検索"
-        searchBar.placeholder = placeholder
-        return searchBar
-    }()
+    private var input: SearchViewModelInput!
+    private var output: SearchViewModelOutput!
     
-    private var input: SearchPresenterInput!
-    func inject(input: SearchPresenterInput) {
-        self.input = input
+    private var cancellable = Set<AnyCancellable>()
+    
+    static func makeFromStoryboard() -> SearchViewController {
+        let vc = UIStoryboard.searchVC
+        let viewModel = SearchViewModel()
+        vc.input = viewModel
+        vc.output = viewModel
+        return vc
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.titleView = searchBar
-        searchBar.delegate = self
         searchTableView.delegate = self
         searchTableView.dataSource = self
+        setupViewModel()
     }
 
 }
 
-extension SearchViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        input.search(searchWord: searchBar.text)
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.text = ""
+private extension SearchViewController {
+    func setupViewModel() {
+        searchTextField.textPublisher
+            .compactMap({ $0 }) // nil回避
+            .removeDuplicates() // 重複した値を続けて流さない
+            .filter({ !$0.isEmpty }) // 空じゃなかったら
+            .debounce(for: .milliseconds(600), scheduler: RunLoop.main) // 入力されて6秒以上
+            .sink {[weak self] text in
+                self?.input.searchWord = text
+            }.store(in: &cancellable)
+        
+        output.qiitaModelsPublisher
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] _ in
+                self?.searchTableView.reloadData()
+            }.store(in: &cancellable)
+        
+        output.errorPublisher
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] error in
+                guard let self = self else { return }
+                guard let error = error else { return }
+                Alert.okAlert(vc: self, title: error.localizedDescription, message: "")
+            }.store(in: &cancellable)
     }
 }
 
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        input.didSelect(index: indexPath.row)
+        let url = URL(string: output.qiitaModels[indexPath.row].url)!
+        Router.showWeb(vc: self, url: url)
     }
 }
 
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        input.numberOfItems
+        return output.qiitaModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.className, for: indexPath) as! SearchTableViewCell
-        let qiitaModel = input.item(index: indexPath.row)
+        let qiitaModel = output.qiitaModels[indexPath.row]
         cell.configure(qiitaModel: qiitaModel)
         return cell
-    }
-    
-}
-
-extension SearchViewController: SearchPresenterOutput {
-    func update(error: APIError) {
-        Alert.okAlert(vc: self, title: error.domain, message: "")
-    }
-    
-    func appError(error: QiitaAppError) {
-        Alert.okAlert(vc: self, title: error.domain, message: "")
-    }
-    
-    func showWeb(url: URL) {
-        Router.showWeb(vc: self, url: url)
-    }
-    
-    func loding(isStart: Bool) {
-        searchIndicator.animation(isStart: isStart)
-    }
-    
-    func update(qiitaModels: [QiitaModel]) {
-        searchTableView.reload()
     }
     
 }
